@@ -1,0 +1,289 @@
+[
+ {
+  "id": "L01",
+  "stage": "第 1 章 · 出生点",
+  "title": "print：让电脑说话",
+  "teach": "程序最基本的能力是「输出」。\n用 print() 把括号里的内容显示到屏幕上。\n文字要用英文引号包起来，单引号双引号都行。",
+  "demo": "print(\"你好，小鲸鱼\")",
+  "task": "输出一行：你好，我是 Lemon",
+  "hint": "print 后面跟一对圆括号，文字放进引号里。",
+  "expect": "你好，我是 Lemon"
+ },
+ {
+  "id": "L02",
+  "stage": "第 1 章 · 出生点",
+  "title": "多次输出与拼接",
+  "teach": "print() 可以写很多行，每行输出一行。\n也可以用 + 把两个字符串粘起来。\n注意：数字不能直接和字符串相加。",
+  "demo": "print(\"第一行\")\nprint(\"第二\" + \"行\")",
+  "task": "分两行输出：鲸鱼\n爱写代码",
+  "hint": "第一行 print(\"鲸鱼\")，第二行 print(\"爱写代码\")。",
+  "expect": "鲸鱼\n爱写代码"
+ },
+ {
+  "id": "L03",
+  "stage": "第 1 章 · 出生点",
+  "title": "变量：给数据起名字",
+  "teach": "变量就是一个贴了标签的盒子。\nname = \"小鲸鱼\" 意思是：把字符串放进名叫 name 的盒子。\n之后 print(name) 就能取出里面的东西。",
+  "demo": "name = \"小鲸鱼\"\nprint(name)\nprint(name)",
+  "task": "创建变量 age 并赋值为 14，然后把它输出来。输出只要一行：14",
+  "hint": "age = 14 然后 print(age)",
+  "expect": "14",
+  "check": "assert 'age' in globals(), '没有找到 age 这个变量'"
+ },
+ {
+  "id": "L04",
+  "stage": "第 1 章 · 出生点",
+  "title": "数字与运算",
+  "teach": "+ 加  - 减  * 乘  / 除  // 整除  % 取余  ** 乘方\n/ 的结果永远是小数，// 只留整数部分。\n% 是「除完还剩几」，用来判断奇偶特别方便。",
+  "demo": "print(7 // 2)\nprint(7 % 2)\nprint(2 ** 10)",
+  "task": "输出三行：第一行 10 除以 3 的整数部分，第二行 10 除以 3 的余数，第三行 3 的 3 次方",
+  "hint": "// 整除，% 取余，** 是乘方。",
+  "expect": "3\n1\n27"
+ },
+ {
+  "id": "L05",
+  "stage": "第 1 章 · 出生点",
+  "title": "f-string：把变量塞进文字",
+  "teach": "在字符串前面加个 f，就能用 {变量} 直接插值，比 + 拼接清爽得多。\n这是写程序时最常用的格式化方式。",
+  "demo": "name = \"Lemon\"\nage = 14\nprint(f\"我是{name}，今年{age}岁\")",
+  "task": "创建 name 和 age 两个变量（自己起值），用 f-string 输出：我叫<name>，<age>岁",
+  "hint": "print(f\"我叫{name}，{age}岁\")",
+  "check": "import io\nassert 'name' in globals() and 'age' in globals(), '需要先创建 name 和 age 两个变量'\n"
+ },
+ {
+  "id": "L06",
+  "stage": "第 2 章 · 让程序思考",
+  "title": "比较与真真假假",
+  "teach": "比较会产生 True（真）或 False（假）。\n> < >= <= == !=  注意判断相等是两个等号。\nprint 出来的 True 就是这个词本身。",
+  "demo": "print(3 > 2)\nprint(3 == 3)\nprint(5 != 5)",
+  "task": "输出三行：10 是否大于 3、7 是否等于 7、4 是否不等于 4",
+  "hint": "分别 print(10 > 3) 等。",
+  "expect": "True\nTrue\nFalse"
+ },
+ {
+  "id": "L07",
+  "stage": "第 2 章 · 让程序思考",
+  "title": "if：让代码分岔",
+  "teach": "if 后面跟一个条件，条件成立才执行下一行。\n注意下一行要缩进（4 个空格），缩进错了 Python 直接报错。",
+  "demo": "score = 90\nif score >= 60:\n    print(\"及格\")",
+  "task": "变量 n = 8。如果 n 大于 5 就输出 大，否则什么都不做。期望输出一行：大",
+  "hint": "if n > 5: 然后缩进 print(\"大\")",
+  "expect": "大",
+  "check": "assert 'n' in globals() and n == 8, 'n 要是 8'"
+ },
+ {
+  "id": "L08",
+  "stage": "第 2 章 · 让程序思考",
+  "title": "else 与 elif",
+  "teach": "if 管一种情况，else 管剩下的所有情况。\nelif 是「不然的话，如果……」，可以写很多个，从上往下第一个成立的生效。",
+  "demo": "score = 75\nif score >= 90:\n    print(\"优秀\")\nelif score >= 60:\n    print(\"及格\")\nelse:\n    print(\"不及格\")",
+  "task": "变量 score = 59，按上面规则输出等级。期望输出：不及格",
+  "hint": "先 if score >= 90，再 elif >= 60，最后 else。",
+  "expect": "不及格"
+ },
+ {
+  "id": "L09",
+  "stage": "第 2 章 · 让程序思考",
+  "title": "while：重复做同一件事",
+  "teach": "while 条件成立就一直循环。\n关键是循环体里要让条件最终变成假，否则就是死循环（本软件会 8 秒掐断）。\n数数是最经典的练习。",
+  "demo": "i = 1\nwhile i <= 3:\n    print(i)\n    i = i + 1",
+  "task": "用 while 输出 1 到 5，每行一个数字",
+  "hint": "从 i = 1 开始，循环条件是 i <= 5，别忘了 i = i + 1。",
+  "expect": "1\n2\n3\n4\n5"
+ },
+ {
+  "id": "L10",
+  "stage": "第 2 章 · 让程序思考",
+  "title": "for 与 range",
+  "teach": "range(3) 会给出 0、1、2。\nfor i in range(3): 就是「对于这三个数，各做一次」。\n它比 while 更不容易写出死循环。",
+  "demo": "for i in range(3):\n    print(i)",
+  "task": "用 for 输出 2 到 6（含 6），每行一个数字",
+  "hint": "range(2, 7) 包含 2 到 6。",
+  "expect": "2\n3\n4\n5\n6"
+ },
+ {
+  "id": "L11",
+  "stage": "第 3 章 · 收纳数据",
+  "title": "列表：一排盒子",
+  "teach": "列表用方括号装一堆东西：[1, 2, 3]。\n索引从 0 开始，所以 fruits[0] 是第一个。\nlen() 能数出里面有几个。",
+  "demo": "fruits = [\"苹果\", \"香蕉\", \"橘子\"]\nprint(fruits[0])\nprint(len(fruits))",
+  "task": "创建列表 nums = [10, 20, 30, 40]，输出第一个元素和它的长度。期望两行：10 然后 4",
+  "hint": "nums[0] 和 len(nums)",
+  "expect": "10\n4",
+  "check": "assert 'nums' in globals() and nums == [10, 20, 30, 40], 'nums 要是 [10, 20, 30, 40]'"
+ },
+ {
+  "id": "L12",
+  "stage": "第 3 章 · 收纳数据",
+  "title": "遍历列表与累加",
+  "teach": "for x in 列表 可以逐个取出元素。\n累加是经典套路：先准备一个 0，循环里不断往上加。",
+  "demo": "total = 0\nfor x in [1, 2, 3]:\n    total = total + x\nprint(total)",
+  "task": "用列表 [5, 8, 2, 9] 加循环算出总和并输出。期望：24",
+  "hint": "先写 s = [5, 8, 2, 9]，total 从 0 开始，循环里 total = total + x，最后 print(total)。变量名可以自己起。",
+  "expect": "24",
+  "check": "import ast as _ast\n_src = globals().get(\"__source__\", \"\")\n_tree = _ast.parse(_src)\n_has_loop = any(isinstance(n, (_ast.For, _ast.While)) for n in _ast.walk(_tree))\n_has_sum = \"sum(\" in _src\nassert _has_loop or _has_sum, \"要用列表真的算一遍（循环或 sum 都行），不能直接 print(24) 写死答案哦\"\n"
+ },
+ {
+  "id": "L13",
+  "stage": "第 3 章 · 收纳数据",
+  "title": "字典：按名字取东西",
+  "teach": "字典用大括号，每项是 键: 值。\n用 d[\"键\"] 取值，用 d[\"新键\"] = 值 添加。\n它比列表更适合「有名字」的数据。",
+  "demo": "d = {\"name\": \"Lemon\", \"score\": 92}\nprint(d[\"name\"])\nd[\"city\"] = \"杭州\"\nprint(len(d))",
+  "task": "创建字典 student = {name: 小鲸鱼, score: 88}，输出 score 的值，再输出字典有几项。期望两行：88 然后 2",
+  "hint": "先 d = {\"name\": \"小鲸鱼\", \"score\": 88}，再 print(d[\"score\"]) 和 print(len(d))",
+  "expect": "88\n2",
+  "check": "assert 'student' in globals(), '变量要叫 student'"
+ },
+ {
+  "id": "L14",
+  "stage": "第 4 章 · 造自己的工具",
+  "title": "def：定义函数",
+  "teach": "函数就是把一段代码打包，起个名字，以后随叫随到。\ndef 名字():\n    缩进的代码\n调用就写 名字()。",
+  "demo": "def hello():\n    print(\"你好\")\n\nhello()\nhello()",
+  "task": "定义函数 say()，里面输出  Lemon  ，然后调用它一次。期望输出一行：Lemon",
+  "hint": "def say(): 缩进 print(\"Lemon\")，最后写 say()",
+  "expect": "Lemon"
+ },
+ {
+  "id": "L15",
+  "stage": "第 4 章 · 造自己的工具",
+  "title": "参数与 return",
+  "teach": "参数让函数能接受外部数据：def add(a, b)。\nreturn 把结果交出去，函数外面用变量接住。\n没有 return 的函数，返回值是 None。",
+  "demo": "def add(a, b):\n    return a + b\n\nprint(add(2, 3))",
+  "task": "定义函数 square(n)，返回 n 的平方；然后输出 square(7) 的结果。期望：49",
+  "hint": "def square(n): return n * n，然后 print(square(7))",
+  "expect": "49"
+ },
+ {
+  "id": "L16",
+  "stage": "第 4 章 · 造自己的工具",
+  "title": "综合：成绩统计",
+  "teach": "把学过的拼起来：列表 + 循环 + 函数 + 判断。\n这是第一次「写一个真的有用的小程序」。\n慢慢来，错了就看报错信息里的行号。",
+  "demo": "def average(nums):\n    total = 0\n    for x in nums:\n        total = total + x\n    return total / len(nums)\n\nprint(average([80, 90, 100]))",
+  "task": "写函数 average(nums) 求平均数，对 [70, 80, 90, 100] 求平均并输出。期望：85.0",
+  "hint": "先累加，再除以 len(nums)。结果是 85.0 带小数点。",
+  "expect": "85.0"
+ },
+ {
+  "id": "L17",
+  "stage": "第 5 章 · 处理文字",
+  "title": "字符串的常用方法",
+  "teach": "文字也能\"加工\"：\nstrip() 去掉首尾空格  upper()/lower() 变大写/小写\nreplace(旧, 新) 替换    split(\",\") 按逗号切成列表\n它们可以连着写：text.strip().upper()",
+  "demo": "s = \"  Hello  \"\nprint(s.strip())\nprint(s.strip().upper())\nprint(\"a,b,c\".split(\",\"))",
+  "task": "变量 text = \"  python 很棒  \"，去掉首尾空格、转成大写后输出。期望：PYTHON 很棒",
+  "hint": "print(text.strip().upper())",
+  "expect": "PYTHON 很棒"
+ },
+ {
+  "id": "L18",
+  "stage": "第 5 章 · 处理文字",
+  "title": "数字格式化",
+  "teach": "f-string 后面能加格式：{x:.2f} 保留两位小数，\n{x:>6} 靠右占 6 格，{x:,.0f} 加千分位。\n成绩、金额都靠这个显示得好看。",
+  "demo": "pi = 3.14159\nprint(f\"{pi:.2f}\")\nprint(f\"{1234567:,}\")",
+  "task": "变量 pi = 3.14159，用 f-string 输出保留两位小数。期望：3.14",
+  "hint": "print(f\"{pi:.2f}\")",
+  "expect": "3.14"
+ },
+ {
+  "id": "L19",
+  "stage": "第 5 章 · 处理文字",
+  "title": "切片：从文字里切一段",
+  "teach": "s[0] 第一个字符，s[-1] 最后一个。\ns[1:4] 取第 1 到第 3 个（含头不含尾）。\ns[::-1] 是倒过来，很常用的技巧。",
+  "demo": "word = \"Python\"\nprint(word[0])\nprint(word[-1])\nprint(word[1:4])\nprint(word[::-1])",
+  "task": "变量 word = \"Lemon\"，把它倒过来输出。期望：nomeL",
+  "hint": "print(word[::-1])",
+  "expect": "nomeL"
+ },
+ {
+  "id": "L20",
+  "stage": "第 5 章 · 处理文字",
+  "title": "try/except：接住错误",
+  "teach": "程序出错会直接崩。用 try 包住可能出错的代码，\nexcept 接住错误，程序就能继续活下去。\n这样写才叫\"结实\"。",
+  "demo": "try:\n    print(1 / 0)\nexcept ZeroDivisionError:\n    print(\"不能除以零\")",
+  "task": "用 try/except 接住除以零的错误，出错时输出：不能除以零",
+  "hint": "try: 里写 print(1 / 0)，except ZeroDivisionError: 里 print 那句话。",
+  "expect": "不能除以零",
+  "check": "import ast as _ast\n_tree = _ast.parse(globals().get(\"__source__\", \"\"))\nassert any(isinstance(n, _ast.Try) for n in _ast.walk(_tree)), \"这一课要用 try / except 来接住错误哦\"\n"
+ },
+ {
+  "id": "L21",
+  "stage": "第 5 章 · 处理文字",
+  "title": "读写文件",
+  "teach": "open(文件名, \"w\") 写，\"r\" 读。\n用 with 包起来，用完自动关闭，最安全。\n中文记得写 encoding=\"utf-8\"。",
+  "demo": "with open(\"demo.txt\", \"w\", encoding=\"utf-8\") as f:\n    f.write(\"你好\")\n\nwith open(\"demo.txt\", \"r\", encoding=\"utf-8\") as f:\n    print(f.read())",
+  "task": "把 \"90\" 写进 成绩.txt，再读出来输出。期望：90",
+  "hint": "with open(\"成绩.txt\",\"w\",encoding=\"utf-8\") as f: f.write(\"90\")，然后用 \"r\" 读出来 print。",
+  "expect": "90"
+ },
+ {
+  "id": "L22",
+  "stage": "第 5 章 · 处理文字",
+  "title": "综合：拆分与统计",
+  "teach": "真实数据常常是 \"90,85,92\" 这种一串文字。\nsplit(\",\") 拆成列表，再用循环把每个转成整数（int），最后求和。\n这一步就是\"解析数据\"，做 AI 时会天天用到。",
+  "demo": "total = 0\nfor x in \"90,85,92\".split(\",\"):\n    total = total + int(x)\nprint(total)",
+  "task": "字符串 text = \"90,85,92\"，拆开后求总和并输出。期望：267",
+  "hint": "text.split(\",\") 得到三个字符串，循环里用 int(x) 转成数字再加起来。",
+  "expect": "267"
+ },
+ {
+  "id": "L23",
+  "stage": "第 6 章 · 造自己的东西",
+  "title": "类与对象",
+  "teach": "class 是\"模板\"，对象是按模板造出来的\"东西\"。\n__init__ 在创建时自动执行，用来装数据。\nself 指\"这个东西自己\"。",
+  "demo": "class Dog:\n    def __init__(self, name):\n        self.name = name\n\nd = Dog(\"旺财\")\nprint(d.name)",
+  "task": "定义 class Student，__init__ 接收 name 和 score 并存起来；创建 Student(\"Lemon\", 95)，输出 name 和 score。期望两行：Lemon 然后 95",
+  "hint": "class Student: def __init__(self, name, score): self.name = name; self.score = score。然后 st = Student(\"Lemon\", 95)",
+  "expect": "Lemon\n95",
+  "check": "import ast as _ast\n_tree = _ast.parse(globals().get(\"__source__\", \"\"))\nassert any(isinstance(n, _ast.ClassDef) for n in _ast.walk(_tree)), \"这一课要自己定义一个 class 哦\"\n"
+ },
+ {
+  "id": "L24",
+  "stage": "第 6 章 · 造自己的东西",
+  "title": "给对象加方法",
+  "teach": "类里面的函数叫\"方法\"，第一个参数固定是 self。\n方法能用到 self 里存的数据，这就是对象的\"行为\"。",
+  "demo": "class Dog:\n    def __init__(self, name):\n        self.name = name\n    def speak(self):\n        return self.name + \" 汪\"\n\nprint(Dog(\"旺财\").speak())",
+  "task": "给 Student 加方法 info()，返回 \"Lemon 考了 95 分\"，然后输出它。期望：Lemon 考了 95 分",
+  "hint": "在 class 里加 def info(self): return f\"{self.name} 考了 {self.score} 分\"",
+  "expect": "Lemon 考了 95 分"
+ },
+ {
+  "id": "L25",
+  "stage": "第 6 章 · 造自己的东西",
+  "title": "导入别人写好的工具",
+  "teach": "Python 自带一大堆库，import 一下就能用：\nmath 数学、random 随机、json 数据格式。\n你不用自己造轮子。",
+  "demo": "import math\nprint(math.sqrt(9))\nprint(math.pi)",
+  "task": "import math，输出 16 的平方根。期望：4.0",
+  "hint": "print(math.sqrt(16))",
+  "expect": "4.0"
+ },
+ {
+  "id": "L26",
+  "stage": "第 6 章 · 造自己的东西",
+  "title": "JSON：AI 接口的通用语言",
+  "teach": "调 AI 接口时，返回的就是 JSON 格式的文字。\njson.loads(文字) 把它变成字典，之后就能按名字取值。\n这一步通了，你就能读任何 API 的返回。",
+  "demo": "import json\ndata = '{\"name\": \"Lemon\", \"score\": 95}'\nd = json.loads(data)\nprint(d[\"name\"])",
+  "task": "字符串 data = '{\"name\": \"Lemon\", \"score\": 95}'，用 json.loads 解析后输出 score。期望：95",
+  "hint": "import json; d = json.loads(data); print(d[\"score\"])",
+  "expect": "95"
+ },
+ {
+  "id": "L27",
+  "stage": "第 6 章 · 造自己的东西",
+  "title": "综合：成绩单平均值",
+  "teach": "字典 + 循环 + 格式化，三样合起来就能做有用的东西。\n遍历字典的值用 .values()。",
+  "demo": "scores = {\"a\": 90, \"b\": 80}\ntotal = 0\nfor v in scores.values():\n    total = total + v\nprint(total / len(scores))",
+  "task": "grades = {\"语文\": 90, \"数学\": 85, \"英语\": 92}，求平均分并保留一位小数输出。期望：89.0",
+  "hint": "用 .values() 累加，再除以 len(grades)，print(f\"{avg:.1f}\")",
+  "expect": "89.0"
+ },
+ {
+  "id": "L28",
+  "stage": "第 6 章 · 造自己的东西",
+  "title": "结业：你走到哪了",
+  "teach": "你已经会：变量、判断、循环、列表、字典、函数、\n类、文件、JSON、错误处理。\n这已经够写小工具了，也够开始碰 Lemon 的\"记忆\"和\"人格\"了。\n下一步：把 16~28 课的代码留好，它们是你的地基。",
+  "demo": "print(\"我准备好了\")",
+  "task": "输出一行：我准备好了",
+  "hint": "print(\"我准备好了\")",
+  "expect": "我准备好了"
+ }
+]
